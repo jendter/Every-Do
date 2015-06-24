@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  TodoTableViewCell.h
 //  EveryDo
 //
 //  Created by Josh Endter on 6/24/15.
@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
-
-@property (strong, nonatomic) id detailItem;
-//@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@interface TodoTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priorityLabel;
 
 
-
-
 @end
-

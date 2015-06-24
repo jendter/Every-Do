@@ -42,7 +42,7 @@
     Todo *newTodo = [Todo new];
     newTodo.title = self.titleTextField.text;
     newTodo.todoDescription = self.descriptionTextField.text;
-    [self.currentTodoList addObject:newTodo];
+    [self.delegate createNewTodoItem:newTodo];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

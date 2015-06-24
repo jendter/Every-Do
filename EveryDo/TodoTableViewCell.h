@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class Todo;
+
 @interface TodoTableViewCell : UITableViewCell
+
+@property (weak,nonatomic) Todo *todoObject;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;

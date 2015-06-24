@@ -52,6 +52,7 @@
 		27C20B8D1B3B04F90026B8E1 /* TodoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoTableViewCell.m; sourceTree = "<group>"; };
 		27C20B951B3B30C20026B8E1 /* NewToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewToDoViewController.h; sourceTree = "<group>"; };
 		27C20B961B3B30C20026B8E1 /* NewToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewToDoViewController.m; sourceTree = "<group>"; };
+		27C20B981B3B51580026B8E1 /* NewToDoViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewToDoViewControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +98,11 @@
 				27C20B621B3AFDB10026B8E1 /* AppDelegate.m */,
 				27C20B641B3AFDB10026B8E1 /* MasterViewController.h */,
 				27C20B651B3AFDB10026B8E1 /* MasterViewController.m */,
-				27C20B671B3AFDB10026B8E1 /* DetailViewController.h */,
-				27C20B681B3AFDB10026B8E1 /* DetailViewController.m */,
+				27C20B981B3B51580026B8E1 /* NewToDoViewControllerDelegate.h */,
 				27C20B951B3B30C20026B8E1 /* NewToDoViewController.h */,
 				27C20B961B3B30C20026B8E1 /* NewToDoViewController.m */,
+				27C20B671B3AFDB10026B8E1 /* DetailViewController.h */,
+				27C20B681B3AFDB10026B8E1 /* DetailViewController.m */,
 				27C20B861B3AFDCE0026B8E1 /* Todo.h */,
 				27C20B871B3AFDCE0026B8E1 /* Todo.m */,
 				27C20B8C1B3B04F90026B8E1 /* TodoTableViewCell.h */,

@@ -15,6 +15,8 @@
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
+//@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
@@ -45,14 +47,13 @@
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
-//    [self.objects insertObject:[NSDate date] atIndex:0];
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self performSegueWithIdentifier:@"newToDo" sender:self];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [self.tableView reloadData];
+-(void)createNewTodoItem:(Todo *)newTodo {
+    [self.objects insertObject:newTodo atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Segues
@@ -65,7 +66,8 @@
     }
     
     if ([[segue identifier] isEqualToString:@"newToDo"]) {
-        [[segue destinationViewController] setCurrentTodoList:self.objects];
+        NewToDoViewController *destination = segue.destinationViewController;
+        destination.delegate = self;
     }
 }
 
@@ -83,9 +85,20 @@
     TodoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TodoCell" forIndexPath:indexPath];
 
     Todo *todo = self.objects[indexPath.row];
+    NSLog(@"Making object at: %@", todo);
+    cell.todoObject = todo;
     cell.titleLabel.text = todo.title;
     cell.descriptionLabel.text = todo.todoDescription;
     cell.priorityLabel.text = [todo priorityString];
+    
+    if (todo.isCompleted) {
+        NSNumber *strikeSize = [NSNumber numberWithInt:2];
+        NSDictionary *strikeThroughAttribute = [NSDictionary dictionaryWithObject:strikeSize forKey:NSStrikethroughStyleAttributeName];
+        NSString *stringToStrikeThrough = cell.titleLabel.text;
+        NSAttributedString *strikeThroughText = [[NSAttributedString alloc] initWithString:stringToStrikeThrough attributes:strikeThroughAttribute];
+        cell.titleLabel.attributedText = strikeThroughText;
+    }
+    
     return cell;
 }
 
@@ -101,6 +114,43 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+- (IBAction)swipeOnCell:(id)sender {
+    NSLog(@"%@ swiped", sender);
+    
+    UISwipeGestureRecognizer *swipeRecognizer = (UISwipeGestureRecognizer *)sender;
+    CGPoint swipePoint = [swipeRecognizer locationInView:self.tableView];
+    
+    NSLog(@"Swipe Point (%f, %f)", swipePoint.x, swipePoint.y);
+    NSIndexPath *swipePointIndex = [self.tableView indexPathForRowAtPoint:swipePoint];
+    NSLog(@"%@", swipePointIndex);
+    
+    
+//    TodoTableViewCell *cellToStrikethrough = (TodoTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:swipePointIndex];
+    Todo *todoAtStrikeThrough = self.objects[swipePointIndex.row];
+    
+    if (!todoAtStrikeThrough.isCompleted) {
+        todoAtStrikeThrough.completed = YES;
+    } else {
+        todoAtStrikeThrough.completed = NO;
+    }
+    
+    NSLog(@"Strikethough is: %i", todoAtStrikeThrough.completed);
+    
+//    NSNumber *strikeSize = [NSNumber numberWithInt:2];
+//    
+//    NSDictionary *strikeThroughAttribute = [NSDictionary dictionaryWithObject:strikeSize
+//                                                                       forKey:NSStrikethroughStyleAttributeName];
+//    
+//    
+//    NSString *stringToStrikeThrough = cellToStrikethrough.titleLabel.text;
+//    NSAttributedString *strikeThroughText = [[NSAttributedString alloc] initWithString:stringToStrikeThrough
+//                                                                            attributes:strikeThroughAttribute];
+//    
+//    cellToStrikethrough.titleLabel.attributedText = strikeThroughText;
+    
+    [self.tableView reloadData];
 }
 
 -(void)setupDefaultTodoList {
@@ -122,6 +172,8 @@
     NSArray *todoArray = @[todo1, todo2, todo3];
     self.objects = [todoArray mutableCopy];
 }
+
+
 
 
 @end

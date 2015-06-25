@@ -42,6 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Adding New Todo Items
+
 - (void)insertNewObject:(id)sender {
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
@@ -140,7 +142,7 @@
     [self.tableView reloadData];
 }
 
-#pragma mark - Cell Swiping
+#pragma mark - Making Defaults
 
 -(void)setupDefaultTodoList {
     Todo *todo1 = [Todo new];

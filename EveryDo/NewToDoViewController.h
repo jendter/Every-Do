@@ -11,8 +11,6 @@
 
 @interface NewToDoViewController : UIViewController
 
-//@property (weak, nonatomic) NSMutableArray *currentTodoList;
-
 @property (weak, nonatomic) id<NewToDoViewControllerDelegate> delegate;
 
 @end

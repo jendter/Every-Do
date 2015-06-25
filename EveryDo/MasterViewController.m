@@ -15,7 +15,6 @@
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
-//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end

@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UIButton *createTodoButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *prioritySegmentedControl;
+
 
 @end
 
@@ -42,8 +44,21 @@
     Todo *newTodo = [Todo new];
     newTodo.title = self.titleTextField.text;
     newTodo.todoDescription = self.descriptionTextField.text;
+    
+    if (self.prioritySegmentedControl.selectedSegmentIndex == 0) {
+        newTodo.priority = PriorityHigh;
+    } else if (self.prioritySegmentedControl.selectedSegmentIndex == 1) {
+        newTodo.priority = PriorityMedium;
+    } else {
+        newTodo.priority = PriorityLow;
+    }
+    
     [self.delegate createNewTodoItem:newTodo];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)viewTapped:(id)sender {
+    [self.view endEditing:YES];
 }
 
 /*

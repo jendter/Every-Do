@@ -215,8 +215,14 @@
                                     <action selector="createNewTodo:" destination="Eq7-Te-B2D" eventType="touchUpInside" id="Rgy-gI-ArX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-p2-BQb">
+                                <rect key="frame" x="16" y="337" width="55" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QLB-9W-rkb">
-                                <rect key="frame" x="112" y="330" width="191" height="29"/>
+                                <rect key="frame" x="112" y="334" width="191" height="29"/>
                                 <segments>
                                     <segment title="High"/>
                                     <segment title="Medium"/>
@@ -224,41 +230,53 @@
                                 </segments>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Priority:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2a1-p2-BQb">
-                                <rect key="frame" x="16" y="337" width="55" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.52941176469999995" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Sds-7s-RPe" firstAttribute="leading" secondItem="Kmu-BF-cWu" secondAttribute="trailing" constant="61" id="05F-HD-u7l"/>
+                            <constraint firstItem="2a1-p2-BQb" firstAttribute="centerY" secondItem="QLB-9W-rkb" secondAttribute="centerY" id="4Mr-g0-xjF"/>
                             <constraint firstItem="Sds-7s-RPe" firstAttribute="trailing" secondItem="uMm-8L-kVK" secondAttribute="trailing" id="BMq-6x-cLE"/>
                             <constraint firstItem="Kmu-BF-cWu" firstAttribute="top" secondItem="NIP-kJ-nXe" secondAttribute="bottom" constant="37" id="Chc-dp-JdK"/>
                             <constraint firstItem="uMm-8L-kVK" firstAttribute="top" secondItem="sq4-6H-2my" secondAttribute="top" id="EBm-ph-KRF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sds-7s-RPe" secondAttribute="trailing" id="EsV-qP-ife"/>
                             <constraint firstItem="Sds-7s-RPe" firstAttribute="centerY" secondItem="Kmu-BF-cWu" secondAttribute="centerY" constant="0.5" id="G7d-wU-laO"/>
-                            <constraint firstItem="8mK-H9-9pv" firstAttribute="top" secondItem="uMm-8L-kVK" secondAttribute="bottom" constant="98" id="GNH-Sf-68V"/>
+                            <constraint firstItem="uMm-8L-kVK" firstAttribute="leading" secondItem="QLB-9W-rkb" secondAttribute="leading" id="Ggi-0a-nXF"/>
                             <constraint firstItem="Sds-7s-RPe" firstAttribute="leading" secondItem="uMm-8L-kVK" secondAttribute="leading" id="HG4-yQ-cHY"/>
+                            <constraint firstItem="2a1-p2-BQb" firstAttribute="leading" secondItem="sq4-6H-2my" secondAttribute="leading" id="HX9-Jr-x9w"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NIP-kJ-nXe" secondAttribute="trailing" id="Lbo-Jb-ele"/>
                             <constraint firstItem="uMm-8L-kVK" firstAttribute="centerX" secondItem="QLB-9W-rkb" secondAttribute="centerX" constant="140.5" id="PRk-F4-geW"/>
                             <constraint firstItem="NIP-kJ-nXe" firstAttribute="top" secondItem="09B-VV-rCI" secondAttribute="bottom" constant="47" id="TVd-ZQ-JRT"/>
-                            <constraint firstItem="QLB-9W-rkb" firstAttribute="top" secondItem="uMm-8L-kVK" secondAttribute="bottom" constant="8" id="Xvq-Hx-aTt"/>
+                            <constraint firstItem="8mK-H9-9pv" firstAttribute="top" secondItem="QLB-9W-rkb" secondAttribute="bottom" constant="58" id="aEP-au-yVg"/>
                             <constraint firstItem="sq4-6H-2my" firstAttribute="top" secondItem="Kmu-BF-cWu" secondAttribute="bottom" constant="14" id="cMh-l5-U9p"/>
                             <constraint firstItem="8mK-H9-9pv" firstAttribute="centerX" secondItem="uMm-8L-kVK" secondAttribute="centerX" constant="-47.5" id="huY-D0-aRt"/>
+                            <constraint firstItem="2a1-p2-BQb" firstAttribute="top" secondItem="sq4-6H-2my" secondAttribute="bottom" constant="122" id="lfD-OQ-DrL"/>
                             <constraint firstItem="NIP-kJ-nXe" firstAttribute="leading" secondItem="1Li-GP-faz" secondAttribute="leadingMargin" id="r3I-tw-8cK"/>
                             <constraint firstItem="NIP-kJ-nXe" firstAttribute="leading" secondItem="Kmu-BF-cWu" secondAttribute="leading" id="uF5-p1-8Ha"/>
                             <constraint firstItem="Sds-7s-RPe" firstAttribute="leading" secondItem="sq4-6H-2my" secondAttribute="trailing" constant="8" id="vz9-GM-JFS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PRk-F4-geW"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8GS-k9-Pjx" appends="YES" id="i7e-9p-7lI"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="createTodoButton" destination="8mK-H9-9pv" id="62N-cz-xek"/>
                         <outlet property="descriptionTextField" destination="uMm-8L-kVK" id="U9k-W3-SIo"/>
+                        <outlet property="prioritySegmentedControl" destination="QLB-9W-rkb" id="E7J-wK-BP5"/>
                         <outlet property="titleTextField" destination="Sds-7s-RPe" id="BJ3-OZ-Oeu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaC-aS-943" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8GS-k9-Pjx">
+                    <connections>
+                        <action selector="viewTapped:" destination="Eq7-Te-B2D" id="U0R-O8-Bus"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1337" y="-614"/>
         </scene>

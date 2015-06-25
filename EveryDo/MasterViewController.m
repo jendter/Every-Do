@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
@@ -115,6 +115,8 @@
     }
 }
 
+#pragma mark - Cell Swiping
+
 - (IBAction)swipeOnCell:(id)sender {
     NSLog(@"%@ swiped", sender);
     
@@ -125,8 +127,6 @@
     NSIndexPath *swipePointIndex = [self.tableView indexPathForRowAtPoint:swipePoint];
     NSLog(@"%@", swipePointIndex);
     
-    
-//    TodoTableViewCell *cellToStrikethrough = (TodoTableViewCell *)[self tableView:self.tableView cellForRowAtIndexPath:swipePointIndex];
     Todo *todoAtStrikeThrough = self.objects[swipePointIndex.row];
     
     if (!todoAtStrikeThrough.isCompleted) {
@@ -137,20 +137,10 @@
     
     NSLog(@"Strikethough is: %i", todoAtStrikeThrough.completed);
     
-//    NSNumber *strikeSize = [NSNumber numberWithInt:2];
-//    
-//    NSDictionary *strikeThroughAttribute = [NSDictionary dictionaryWithObject:strikeSize
-//                                                                       forKey:NSStrikethroughStyleAttributeName];
-//    
-//    
-//    NSString *stringToStrikeThrough = cellToStrikethrough.titleLabel.text;
-//    NSAttributedString *strikeThroughText = [[NSAttributedString alloc] initWithString:stringToStrikeThrough
-//                                                                            attributes:strikeThroughAttribute];
-//    
-//    cellToStrikethrough.titleLabel.attributedText = strikeThroughText;
-    
     [self.tableView reloadData];
 }
+
+#pragma mark - Cell Swiping
 
 -(void)setupDefaultTodoList {
     Todo *todo1 = [Todo new];
